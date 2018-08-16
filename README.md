@@ -14,3 +14,13 @@ sudo $(which tomu-flash-u2f)
 ```
 
 To reset to the original state follow [these instructions](https://github.com/im-tomu/tomu-bootloader#using-toboot).
+
+# Use as normal user on NixOS
+
+Add the following to `/etc/nixos/configuration.nix`, then `nixos-rebuild switch`.
+
+```
+services.udev.extraRules = ''
+    ACTION=="add|change", KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="cdab", TAG+="uaccess", MODE="0766",GROUP="users"
+  '';
+```
