@@ -22,6 +22,6 @@ Add the following to `/etc/nixos/configuration.nix`, then `nixos-rebuild switch`
 
 ```
 services.udev.extraRules = ''
-    ACTION=="add|change", KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="cdab", TAG+="uaccess", MODE="0766",GROUP="users"
-  '';
+  ACTION=="add|change", KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="cdab", SYMLINK+="tomu%n", MODE="0760", GROUP="users"
+'';
 ```
