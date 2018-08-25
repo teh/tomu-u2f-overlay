@@ -6,6 +6,7 @@ This is a [nix overlay](https://nixos.org/nixpkgs/manual/#chap-overlays) that ad
 
 ```
 git clone https://github.com/teh/tomu-u2f-overlay
+mkdir -p ~/.config/nixpkgs/overlays
 cp -r tomu-u2f-overlay/* ~/.config/nixpkgs/overlays
 nix-env -iA nixpkgs.tomu-flash-utf
 
